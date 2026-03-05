@@ -24,21 +24,21 @@ echo ""
 echo "📦 Installing skills..."
 echo ""
 
-# Install tapestry master skill
-if [ -d "$SKILLS_DIR/tapestry" ]; then
-    echo "⚠️  tapestry skill already exists"
+# Install learn-this master skill
+if [ -d "$SKILLS_DIR/learn-this" ]; then
+    echo "⚠️  learn-this skill already exists"
     read -p "   Overwrite? (y/n) " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        rm -rf "$SKILLS_DIR/tapestry"
-        cp -r "$SCRIPT_DIR/tapestry" "$SKILLS_DIR/"
-        echo "   ✓ Updated tapestry skill"
+        rm -rf "$SKILLS_DIR/learn-this"
+        cp -r "$SCRIPT_DIR/learn-this" "$SKILLS_DIR/"
+        echo "   ✓ Updated learn-this skill"
     else
-        echo "   ⏭️  Skipped tapestry skill"
+        echo "   ⏭️  Skipped learn-this skill"
     fi
 else
-    cp -r "$SCRIPT_DIR/tapestry" "$SKILLS_DIR/"
-    echo "✓ Installed tapestry skill"
+    cp -r "$SCRIPT_DIR/learn-this" "$SKILLS_DIR/"
+    echo "✓ Installed learn-this skill"
 fi
 
 # Install youtube-transcript skill
@@ -116,7 +116,7 @@ echo ""
 echo "Skills installed to: $SKILLS_DIR"
 echo ""
 echo "📚 Available skills:"
-echo "  - tapestry: 🌟 Unified workflow (extract + plan)"
+echo "  - learn-this: 🌟 Unified workflow (extract + plan)"
 echo "  - youtube-transcript: Download YouTube transcripts"
 echo "  - article-extractor: Extract clean article content"
 echo "  - ship-learn-next: Turn content into action plans"
@@ -124,8 +124,8 @@ echo "  - scrum-sage: AI Scrum Master & agile coaching"
 echo ""
 echo "🚀 Usage:"
 echo "  Open Claude Code and start using the skills!"
-echo "  Quick start: 'tapestry [URL]'"
-echo "  Example: 'tapestry https://www.youtube.com/watch?v=VIDEO_ID'"
+echo "  Quick start: 'learn-this [URL]'"
+echo "  Example: 'learn-this https://www.youtube.com/watch?v=VIDEO_ID'"
 echo ""
 echo "📖 See README.md for more information"
 echo ""
