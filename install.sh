@@ -109,6 +109,40 @@ else
     echo "✓ Installed scrum-sage skill"
 fi
 
+# Install session-log skill
+if [ -d "$SKILLS_DIR/session-log" ]; then
+    echo "⚠️  session-log skill already exists"
+    read -p "   Overwrite? (y/n) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        rm -rf "$SKILLS_DIR/session-log"
+        cp -r "$SCRIPT_DIR/session-log" "$SKILLS_DIR/"
+        echo "   ✓ Updated session-log skill"
+    else
+        echo "   ⏭️  Skipped session-log skill"
+    fi
+else
+    cp -r "$SCRIPT_DIR/session-log" "$SKILLS_DIR/"
+    echo "✓ Installed session-log skill"
+fi
+
+# Install unblock-action skill
+if [ -d "$SKILLS_DIR/unblock-action" ]; then
+    echo "⚠️  unblock-action skill already exists"
+    read -p "   Overwrite? (y/n) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        rm -rf "$SKILLS_DIR/unblock-action"
+        cp -r "$SCRIPT_DIR/unblock-action" "$SKILLS_DIR/"
+        echo "   ✓ Updated unblock-action skill"
+    else
+        echo "   ⏭️  Skipped unblock-action skill"
+    fi
+else
+    cp -r "$SCRIPT_DIR/unblock-action" "$SKILLS_DIR/"
+    echo "✓ Installed unblock-action skill"
+fi
+
 echo ""
 echo "=============================================="
 echo "✅ Installation complete!"
@@ -121,6 +155,8 @@ echo "  - youtube-transcript: Download YouTube transcripts"
 echo "  - article-extractor: Extract clean article content"
 echo "  - ship-learn-next: Turn content into action plans"
 echo "  - scrum-sage: AI Scrum Master & agile coaching"
+echo "  - session-log: Weekly session logging & journaling"
+echo "  - unblock-action: Get unstuck on vague tasks"
 echo ""
 echo "🚀 Usage:"
 echo "  Open Claude Code and start using the skills!"

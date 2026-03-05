@@ -64,7 +64,37 @@ AI-powered Scrum Master and Enterprise Agility Coach based on Jeff Sutherland, T
 - Facilitate retrospectives and backlog refinement
 - Optimize team dynamics and sustainable pace
 
-### 4. Ship-Learn-Next Action Planner
+### 4. Session Log
+Summarize your Claude Code conversation and append it to a weekly agent-log file.
+
+**Features:**
+- Reverse chronological daily entries
+- Automatic ISO week file naming (`LOOM/YYYY-wWW agent-log.md`)
+- CHUNK markers for reusable outputs (plans, summaries, frameworks)
+- Appends without overwriting existing entries
+- Multi-day session support with date attribution
+
+**Use cases:**
+- Log what you accomplished in a session
+- Build a searchable weekly work journal
+- Track decisions, outputs, and topics across sessions
+
+### 5. Unblock Action
+Get unstuck on vague or overwhelming tasks. Clarifies the intended output, scopes it to today, and identifies the concrete next physical action.
+
+**Features:**
+- Socratic but fast — 2-3 questions max
+- Turns fuzzy goals into concrete deliverables
+- Scopes multi-day projects to today's completable slice
+- Outputs a clean action card with deliverable, scope, and next step
+
+**Use cases:**
+- "I need to work on marketing but can't start"
+- "I'm stuck on pricing"
+- "I have to do something about onboarding"
+- Any vague task you keep avoiding
+
+### 6. Ship-Learn-Next Action Planner
 Transform passive learning content (transcripts, articles, tutorials) into actionable implementation plans using the Ship-Learn-Next framework.
 
 **Features:**
@@ -108,6 +138,8 @@ cp -r youtube-transcript ~/.claude/skills/
 cp -r article-extractor ~/.claude/skills/
 cp -r ship-learn-next ~/.claude/skills/
 cp -r scrum-sage ~/.claude/skills/
+cp -r session-log ~/.claude/skills/
+cp -r unblock-action ~/.claude/skills/
 ```
 
 #### Option 2: Project Skills (Only in specific project)
@@ -122,6 +154,8 @@ cp -r /path/to/tapestry-skills-for-claude-code/youtube-transcript .claude/skills
 cp -r /path/to/tapestry-skills-for-claude-code/article-extractor .claude/skills/
 cp -r /path/to/tapestry-skills-for-claude-code/ship-learn-next .claude/skills/
 cp -r /path/to/tapestry-skills-for-claude-code/scrum-sage .claude/skills/
+cp -r /path/to/tapestry-skills-for-claude-code/session-log .claude/skills/
+cp -r /path/to/tapestry-skills-for-claude-code/unblock-action .claude/skills/
 ```
 
 ## Usage
@@ -195,6 +229,38 @@ The skill will:
 3. Detect anti-patterns and surface hidden impediments
 4. Recommend concrete experiments (not mandates)
 5. Offer sprint health dashboards, flow maps, or retrospective synthesis as needed
+
+### Session Log
+
+Claude will use this skill when you want to log your session:
+
+```
+"log this"
+"session log"
+"summarize this session"
+```
+
+The skill will:
+1. Review the full conversation history
+2. Identify topics, decisions, and reusable outputs
+3. Append entries to `LOOM/YYYY-wWW agent-log.md` in reverse chronological order
+4. Confirm what was logged
+
+### Unblock Action
+
+Claude will activate this skill when you're stuck on a task:
+
+```
+"unblock: work on marketing"
+"I'm stuck on the pricing page"
+"unstick: figure out onboarding"
+```
+
+The skill will:
+1. Ask one question to clarify the concrete output
+2. Scope it to a day-sized deliverable
+3. Identify the literal first physical action
+4. Output a clean action card you can work from
 
 ### Ship-Learn-Next Action Planner
 
